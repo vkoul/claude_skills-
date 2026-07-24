@@ -62,7 +62,14 @@ Bootstrap the mastery engine for a new course. Reads raw materials in the curren
 
 6. **Create `derivations/` directory** (if not exists)
 
-7. **Print a summary**: how many concepts found, the dependency tiers, and suggested first action.
+7. **Generate `dashboard.html`** — the interactive progress visualization and concept dependency graph. Follow the full specification in `/dashboard` to produce a self-contained HTML file with:
+   - Progress overview (all concepts start at "unstarted")
+   - Concept dependency DAG (the key visual — shows the full learning path)
+   - Concept detail cards on click
+   - Dark/light mode
+   - All data embedded inline, opens in any browser
+
+8. **Print a summary**: how many concepts found, the dependency tiers, and suggested first action. Tell the user to open `dashboard.html` in their browser to see the concept map.
 
 ## Rules
 - If `COURSE.md` already exists, ask whether to overwrite or merge (new materials added).

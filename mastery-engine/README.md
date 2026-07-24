@@ -62,7 +62,8 @@ Ordered by impact on deep understanding (highest first):
 | `/mistakes` | Misconception pattern analysis + resurfacing | Your errors have patterns you can't see. This finds them, predicts where you'll fail next, and forces confrontation before exams. More diagnostic than generic spaced repetition. | Regularly, and always before exams |
 | `/oral-exam` | Timed mock oral examination | Tests clarity and completeness under pressure. Knowing something in your own time ≠ knowing it when someone is watching the clock. Closest simulation to quals/defenses/vivas. | When preparing for actual exams or presentations |
 | `/implement` | Build the algorithm from scratch in code | You don't understand an algorithm until you can make it work without libraries. Implementation reveals every assumption you glossed over in the math. Reading ≠ building. | For any implementable method in quantitative courses |
-| `/setup-course` | Bootstrap the mastery engine for a new course | Reads your raw materials (PDFs, slides, notes) and generates the structured concept map all other skills depend on. The one-time setup that makes everything else work. | Once, when starting a new course |
+| `/dashboard` | Interactive HTML progress visualization + dependency graph | See your entire learning path as an interactive graph — which concepts unlock which, where you are, what's blocking you. Turns abstract progress into a visual map you can navigate. | After `/setup-course`, and after study sessions to see updated state |
+| `/setup-course` | Bootstrap the mastery engine for a new course | Reads your raw materials (PDFs, slides, notes), generates the structured concept map, and produces the initial `dashboard.html`. The one-time setup that makes everything else work. | Once, when starting a new course |
 
 ## Folder Structure (Per Course)
 
@@ -73,6 +74,7 @@ my_course/
 ├── COURSE.md           ← generated: concepts, dependencies, style guide
 ├── progress.json       ← tracks your mastery state
 ├── mistakes.jsonl      ← append-only error log
+├── dashboard.html      ← interactive progress graph (open in browser)
 ├── problems/           ← generated problems + your attempts
 ├── derivations/        ← your cold derivations
 └── [your raw materials: PDFs, slides, notes, etc.]

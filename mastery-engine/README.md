@@ -95,6 +95,20 @@ The `/master` skill enforces this and won't let you skip ahead.
 4. **Generate difficulty 5 problems** only after passing difficulty 3-4 — it's discouraging otherwise
 5. **Implement from scratch** for any algorithm — reading about gradient descent ≠ understanding it
 
+## Daily Study Rhythm
+
+| Time | Action |
+|------|--------|
+| Session start | `/master` — what should I do today? |
+| New concept | `/explainer` → `/socratic` |
+| Think you know it | `/derive` + `/skeptic` |
+| Need practice | `/generate-problems` at increasing difficulty |
+| Quant method | `/implement` from scratch |
+| Weekly | `/mistakes` — find patterns |
+| Pre-exam | `/oral-exam` — full simulation |
+
+The system handles "what should I study and in what order." You show up, run `/master`, and do what it says.
+
 ## Works With Any Course
 
 This system is course-agnostic. It works for:

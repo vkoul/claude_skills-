@@ -49,17 +49,20 @@ The orchestrator tells you exactly what to do next based on your current state.
 
 ## Available Skills
 
-| Skill | Purpose | When to Use |
-|-------|---------|-------------|
-| `/setup-course` | Bootstrap mastery engine for a new course | Once, at the start |
-| `/master` | Get today's study prescription | Start of every session |
-| `/socratic` | Strict Socratic questioning (no answers given) | When learning new concepts |
-| `/derive` | Derive a theorem cold, get a rigor audit | When you think you understand |
-| `/generate-problems` | Fresh problems at increasing difficulty | When you need practice |
-| `/oral-exam` | Timed mock oral examination | When preparing for exams |
-| `/skeptic` | Teach to a hostile, adversarial audience | When you think you can explain it |
-| `/mistakes` | Analyze error patterns, resurface dangers | Regularly, and before exams |
-| `/implement` | Build the algorithm from scratch in code | For quantitative courses |
+Ordered by impact on deep understanding (highest first):
+
+| Skill | Purpose | How It Helps | When to Use |
+|-------|---------|--------------|-------------|
+| `/explainer` | 9-layer explanation stack for new concepts | Builds genuine understanding from intuition → formalism → edge cases, with wrong-intuition inoculation at every layer. The foundation everything else builds on — you can't test what you never properly learned. | First encounter with any new concept |
+| `/socratic` | Strict Socratic questioning — never gives answers | Exposes the exact point where your understanding breaks down. Forces you to articulate reasoning, not just recognize correct answers. The single fastest way to find hidden gaps. | After `/explainer`, to stress-test your new understanding |
+| `/derive` | Derive a theorem cold, get a rigor audit | Proves you own the logic, not just the conclusion. Hand-waving is invisible until someone audits it — this is that audit. Separates "I've seen this" from "I can reproduce this." | When you believe you understand a proof or derivation |
+| `/skeptic` | Teach concept to a hostile, adversarial audience | If you can convince a skeptic, you truly understand. Exposes jargon-dependence, edge-case blindness, and inability to justify design choices. Feynman technique with teeth. | When you think you can explain something |
+| `/generate-problems` | Novel problems at increasing difficulty | Forces transfer, not memorization. Textbook problems test recognition; generated problems test whether you can apply concepts in unfamiliar contexts. The gap between these is where exams live. | When you need practice beyond the textbook |
+| `/master` | Meta-orchestrator — tells you exactly what to do next | Eliminates decision fatigue and ensures you're always working on the highest-leverage gap. Enforces the 4-gate rule so nothing slips through. Your study session autopilot. | Start of every study session |
+| `/mistakes` | Misconception pattern analysis + resurfacing | Your errors have patterns you can't see. This finds them, predicts where you'll fail next, and forces confrontation before exams. More diagnostic than generic spaced repetition. | Regularly, and always before exams |
+| `/oral-exam` | Timed mock oral examination | Tests clarity and completeness under pressure. Knowing something in your own time ≠ knowing it when someone is watching the clock. Closest simulation to quals/defenses/vivas. | When preparing for actual exams or presentations |
+| `/implement` | Build the algorithm from scratch in code | You don't understand an algorithm until you can make it work without libraries. Implementation reveals every assumption you glossed over in the math. Reading ≠ building. | For any implementable method in quantitative courses |
+| `/setup-course` | Bootstrap the mastery engine for a new course | Reads your raw materials (PDFs, slides, notes) and generates the structured concept map all other skills depend on. The one-time setup that makes everything else work. | Once, when starting a new course |
 
 ## Folder Structure (Per Course)
 

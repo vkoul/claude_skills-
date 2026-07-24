@@ -5,7 +5,7 @@ A collection of reusable Claude Code skills for learning, productivity, and work
 ## Available Skill Systems
 
 ### [Mastery Engine](./mastery-engine/)
-A rigorous self-study system that turns any course folder into an MIT-level learning environment. 9 skills that enforce deep understanding through derivation, adversarial teaching, novel problem generation, and mock oral exams.
+A rigorous self-study system that turns any course folder into an MIT-level learning environment. 10 skills that enforce deep understanding through multi-layered concept explanation, derivation, adversarial teaching, novel problem generation, and mock oral exams.
 
 **Quick start**: Copy `mastery-engine/commands/*` to `~/.claude/commands/`, then `/setup-course` in any folder with course materials.
 
@@ -30,6 +30,7 @@ claude_skills-/
 ├── mastery-engine/
 │   ├── README.md           ← full documentation
 │   ├── commands/           ← the skill files (copy to ~/.claude/commands/)
+│   │   ├── explainer.md
 │   │   ├── setup-course.md
 │   │   ├── master.md
 │   │   ├── socratic.md

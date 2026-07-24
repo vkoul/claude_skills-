@@ -76,13 +76,31 @@ THE FIX: [The correct reframe]
 
 This is often MORE valuable than the correct explanation itself. Most stuck-ness comes from an unexamined wrong model, not absence of a right one. Naming the wrong model directly inoculates against it.
 
+## Personalization (reads learner.json)
+
+Adapt the explanation stack based on the learner profile:
+
+| Learner Attribute | Adaptation |
+|-------------------|-----------|
+| `preference: "intuition first"` | Spend more space on Layers 1-3, make Layer 4 gentler with more intermediate steps |
+| `preference: "formalism first"` | Lead with Layer 4 notation early, make Layers 1-3 brief confirmations |
+| `weakness: "math notation scares me"` | Layer 4: introduce notation ONE symbol at a time, always mapping back to Layer 1 intuition. More verbal, less symbolic. |
+| `weakness: "I memorize but don't understand"` | Heavy emphasis on Layer 2 (WHY) and Layer 6 (WHERE IT BREAKS). These break memorization patterns. |
+| `background` contains relevant domain | Layer 7: use analogies from their actual background (e.g., if they know causal inference, explain power analysis via "the minimum detectable effect is like...") |
+| `familiarity: 4-5` | Compress Layers 1-3 into a quick confirmation, expand Layers 6-8 (edge cases and generative tests — where deep learners actually have gaps) |
+| `familiarity: 1-2` | Expand Layers 1-3 significantly, add more examples in Layer 5, make Layer 4 optional on first pass |
+| `goal: "use at work"` | Layer 5: use workplace-realistic examples, not textbook ones. Add a "when would you use this in practice?" section. |
+| `goal: "teach others"` | Emphasize Layer 1 and Layer 7 (these are what teachers need most). Add "common student questions" at each layer. |
+
 ## Session Flow
 
-1. Read `COURSE.md` for course context and what's already known.
-2. Read `progress.json` for mastered concepts (Layer 7 needs this).
-3. Ask: "What concept do you want explained?" (or accept as argument)
-4. Generate the full 9-layer stack with wrong-intuition callouts.
-5. After delivery, ask: "Which layer felt weakest? Want me to expand any layer or generate more examples?"
+1. Read `learner.json` for personalization preferences.
+2. Read `COURSE.md` for course context and what's already known.
+3. Read `progress.json` for mastered concepts (Layer 7 needs this).
+4. Read `mistakes.jsonl` for any prior misconceptions about this concept.
+5. Ask: "What concept do you want explained?" (or accept as argument)
+6. Generate the personalized 9-layer stack with wrong-intuition callouts.
+7. After delivery, ask: "Which layer felt weakest? Want me to expand any layer or generate more examples?"
 
 ## Output Format
 

@@ -2,10 +2,22 @@
 
 Simulate a timed, closed-book oral examination. Grades not just correctness but clarity, completeness, and ability to handle follow-ups under pressure.
 
+## Personalization (reads learner.json)
+
+| Learner Attribute | Adaptation |
+|-------------------|-----------|
+| `weakness: "I freeze under pressure"` | Start with a LOW-PRESSURE mode: shorter (5 min), only 2 questions, no visible timer. Build up gradually across sessions. First few oral exams should build confidence, not crush it. |
+| `exam_format: "oral"` or `goal: "teach others"` | Full intensity from the start — they need this pressure. Include "explain to a non-expert" questions heavily. |
+| `exam_format: "multiple choice"` | De-emphasize oral fluency, emphasize quick recall and discrimination between similar concepts. |
+| `familiarity: 1-2` | Keep questions at conceptual level (Layer 1-2 knowledge). Don't ask derivation questions in oral format until they've passed `/derive`. |
+| `familiarity: 4-5` | Ask synthesis questions that combine concepts. Expect precise terminology. Probe the edges. |
+| `session_length_minutes: 30` | Default to 10-minute exam (leaves time for debrief). For 60+ min sessions, do full 15-20 min. |
+| `background` | Ask one question framed in their domain: "In your role as a [background], when would this apply?" |
+
 ## Session Flow
 
-1. Read `COURSE.md` and `progress.json`.
-2. Announce format:
+1. Read `learner.json`, `COURSE.md`, and `progress.json`.
+2. Announce format (adapted to learner profile):
    ```
    ORAL EXAM — [Course Name]
    Duration: [10/15/20 minutes — ask or default to 15]

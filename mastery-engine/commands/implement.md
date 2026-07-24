@@ -2,9 +2,21 @@
 
 Force deep understanding by building the core algorithm/method from scratch in code. No libraries for the core logic. You understand it when you can make it work.
 
+## Personalization (reads learner.json)
+
+| Learner Attribute | Adaptation |
+|-------------------|-----------|
+| `background` contains "programmer" or "engineer" | Stricter code quality expectations. Expect proper error handling, docstrings, and test cases. Push for efficiency. |
+| `background` does NOT contain programming | Allow messier code. Focus on correctness of the ALGORITHM, not code style. Accept pseudocode if needed, then help translate to real code. |
+| `weakness: "math notation scares me"` | Provide the mathematical formula alongside the challenge, translated into words. "Implement this: for each data point, compute the distance to every centroid, then assign to the nearest." |
+| `goal: "use at work"` | After the core implementation, add a bonus challenge: "Now wrap this in a function with a clean API that your team could actually use." |
+| `goal: "deep understanding for research"` | After implementation works, ask: "Now modify it to handle [edge case from the literature]. What changes?" Push extensions. |
+| `session_length_minutes: 30` | Suggest a SIMPLER version: "Implement just the core loop, skip edge cases for now. We'll extend next time." |
+| `session_length_minutes: 120+` | Full implementation + tests + comparison + extension challenge. |
+
 ## Session Flow
 
-1. Read `COURSE.md` to identify implementable algorithms/methods.
+1. Read `learner.json` and `COURSE.md` to identify implementable algorithms/methods.
 2. Ask: "What do you want to implement?" (or accept as argument)
 3. Set the constraints:
    ```

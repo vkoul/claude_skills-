@@ -2,13 +2,25 @@
 
 You derive a theorem, proof, or formula cold (closed-book). Then this skill performs a rigorous audit of your derivation.
 
+## Personalization (reads learner.json)
+
+| Learner Attribute | Adaptation |
+|-------------------|-----------|
+| `weakness: "can't derive from scratch"` | This is their PRIMARY gap — extra scaffolding on first attempts. Offer a "partial derivation" mode: provide the first step and last step, they fill the middle. Graduate to fully cold. |
+| `weakness: "math notation scares me"` | Accept derivations in pseudo-code or plain English first. Then ask: "Now, can you rewrite step 3 in proper notation?" Audit both versions. |
+| `familiarity: 1-2` | Allow looking at the formula/theorem statement (but NOT the proof). The goal is "can you get from A to B", not "can you remember what B is." |
+| `familiarity: 4-5` | Full cold. No looking at anything. Audit is strict — grade B requires zero hand-waving. |
+| `goal: "use at work"` | Focus on derivations that reveal WHY a method works (builds correct intuition for application), not pure proof elegance. |
+| `preference: "intuition first"` | In the audit report, phrase gaps in intuitive terms first ("you skipped explaining WHY the variance decreases"), then in formal terms. |
+
 ## Session Flow
 
-1. Read `COURSE.md` to know available theorems/proofs.
+1. Read `learner.json` and `COURSE.md` to know available theorems/proofs and learner level.
 2. Ask: "Which theorem or result do you want to derive?" (or accept it as an argument)
-3. Say: "Go ahead. Write your derivation from scratch. I'll audit it when you're done."
-4. **Wait for the student's derivation.** Do not interrupt or help.
-5. Once submitted, perform the **Rigor Audit**.
+3. If learner has `weakness: "can't derive from scratch"` and this is their first few derivation attempts, offer: "Want to try fully cold, or shall I give you the setup (first line + goal) and you fill the middle?"
+4. Say: "Go ahead. Write your derivation from scratch. I'll audit it when you're done."
+5. **Wait for the student's derivation.** Do not interrupt or help.
+6. Once submitted, perform the **Rigor Audit**.
 
 ## Rigor Audit Checklist
 

@@ -1,0 +1,22 @@
+{
+  "course": "Course Title",
+  "setup_date": "YYYY-MM-DD",
+  "last_session": null,
+  "total_sessions": 0,
+  "concepts": {
+    "example_concept": {
+      "status": "unstarted",
+      "tier": 1,
+      "derive_pass": false,
+      "skeptic_pass": false,
+      "problems_pass": false,
+      "oral_pass": false,
+      "problems_attempted": 0,
+      "problems_correct": 0,
+      "max_difficulty_passed": 0,
+      "last_reviewed": null,
+      "mistakes_count": 0,
+      "notes": ""
+    }
+  }
+}

@@ -73,7 +73,44 @@ This skill handles ANY of the following (alone or combined):
 
 ## Step 1: Scan Materials
 
-Scan the current directory for course materials: PDFs, slides, extracted text files, markdown notes, problem sets, syllabi, textbooks. Read as many as needed to understand the full scope.
+Scan the current directory for course materials: PDFs, slides, extracted text files, markdown notes, problem sets, syllabi, textbooks. Attempt to read as many as needed to understand the full scope.
+
+**CRITICAL: Material Reading Verification**
+
+After attempting to read materials, STOP and report to the learner:
+
+```
+📊 Material Scan Report
+
+Files Found: [count]
+
+✅ Successfully Read:
+- file1.pdf (45 pages, extracted text)
+- notes.txt (successfully read)
+
+❌ Could Not Read:
+- file2.pdf (Error: pdftoppm not installed - PDF rendering unavailable)
+- video_transcript.mp4 (Error: not a text format)
+
+⚠️ IMPORTANT: 
+[If any files failed] I could not read [X] of [Y] files. 
+
+Your options:
+1. Install missing tools (e.g., poppler for PDFs: choco install poppler)
+2. Extract text manually and save as .txt files
+3. Tell me the topics/concepts verbally and I'll structure them
+4. Provide alternative materials (syllabus, course outline, etc.)
+5. Skip unreadable files and proceed with what I could read
+
+Which would you prefer?
+```
+
+**DO NOT proceed to Step 2 until:**
+- All critical materials are successfully read, OR
+- The learner explicitly approves proceeding with partial/no material reading
+
+**If proceeding with incomplete reads:**
+- Mark in COURSE.md: "⚠️ IMPORTANT: Course structure is based on [what you actually read]. The following materials were NOT processed: [list]. Structure may be incomplete or inaccurate."
 
 ## Step 2: Generate Personalized `COURSE.md`
 
@@ -391,6 +428,7 @@ Your progress is saved in `progress.json` and will persist across sessions.
 
 ## Rules
 
+- **CRITICAL: Material Reading Transparency** — ALWAYS report which files were successfully read vs failed. NEVER silently guess or infer course content without explicit learner approval. If you cannot read materials, STOP and present options. Trust is paramount.
 - If `COURSE.md` already exists, ask whether to overwrite or merge.
 - If `learner.json` already exists, ask whether to redo the interview or keep existing profile.
 - Extract concepts at independently-testable granularity.
@@ -398,6 +436,7 @@ Your progress is saved in `progress.json` and will persist across sessions.
 - **Respect the learner's stated weakness** — if they say "I can't derive", weight `/derive` gates higher. If they say "I freeze under pressure", introduce `/oral-exam` early to build tolerance.
 - **Respect the timeline** — if they have 2 weeks, focus on high-priority concepts only and skip low-priority ones. If they have a semester, cover everything including depth.
 - **Respect prior knowledge** — don't waste time re-teaching what they know. But DO verify claimed knowledge with at least one gate before marking it mastered.
+- **If proceeding with incomplete material reads** — Always add a prominent warning in COURSE.md stating which materials were NOT processed and that the structure may be incomplete or inaccurate.
 
 ## Usage
 ```

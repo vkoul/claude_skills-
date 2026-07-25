@@ -2,6 +2,20 @@
 
 Generate a self-contained HTML dashboard that visualizes your mastery progress and concept dependency graph. Open it in any browser — no server needed.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow this exact sequence:
+1. Read `progress.json`, `COURSE.md`, and `mistakes.jsonl` from the current directory.
+2. If `progress.json` is missing, output: "No progress data found. Run `/setup-course` first." and stop.
+3. Parse concepts and dependencies from `COURSE.md`. Extract: concept names, tiers, prerequisites.
+4. Generate a SINGLE self-contained HTML file named `dashboard.html`. It must:
+   - Include ALL CSS inline (no external stylesheets)
+   - Load D3.js and dagre-d3 from CDN only
+   - Embed all data as inline `<script>` JSON variables
+   - Work when opened as a local file (`file:///...`)
+5. Use the exact color codes and layout structure specified below.
+6. After writing the file, tell the user: "Open `dashboard.html` in your browser to see your progress."
+
 ## Behavior
 
 1. Read `progress.json`, `COURSE.md`, and `mistakes.jsonl` from the current directory.

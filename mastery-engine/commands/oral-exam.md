@@ -2,6 +2,18 @@
 
 Simulate a timed, closed-book oral examination. Grades not just correctness but clarity, completeness, and ability to handle follow-ups under pressure.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow this exact sequence:
+1. Read `COURSE.md` and `progress.json`. Pick 4-6 questions targeting concepts marked "in_progress" or "familiar."
+2. Announce the exam format (use template below). Wait for "go."
+3. Ask ONE question at a time. After the student answers, either:
+   - Ask a follow-up (if answer was incomplete): "Can you elaborate on [specific part]?"
+   - Move to next question (if answer was good or time is short)
+4. After all questions, OUTPUT the grade report using the exact template.
+5. Grade each answer on three axes: Correctness (is it right?), Clarity (could a peer understand?), Completeness (all parts addressed?).
+6. Overall grade: A = all answers correct+clear, B = mostly correct with minor gaps, C = some wrong, D = major gaps, F = fundamental misunderstanding.
+
 ## Personalization (reads learner.json)
 
 | Learner Attribute | Adaptation |

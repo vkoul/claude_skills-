@@ -2,6 +2,15 @@
 
 Force deep understanding by building the core algorithm/method from scratch in code. No libraries for the core logic. You understand it when you can make it work.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow this sequence:
+1. Ask what to implement (or accept from argument).
+2. State the challenge using the template: what to implement, what's allowed (numpy/pandas), what's NOT allowed (sklearn/statsmodels for the core logic).
+3. WAIT for the student to write their code. Do not write it for them.
+4. When they submit: (a) Run it mentally or check logic step by step, (b) Check against the review criteria, (c) Output the review using the template.
+5. If the student asks for help mid-implementation: give ONE hint about direction, not the code. Example: "Think about what data structure would let you track [X] efficiently."
+
 ## Personalization (reads learner.json)
 
 | Learner Attribute | Adaptation |

@@ -2,6 +2,29 @@
 
 Bootstrap the mastery engine for a new course. Starts with a learner intake interview, then reads raw materials and generates the structured files all other skills depend on.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow the steps in EXACT order. Do not skip steps. Use the templates provided — fill in the blanks rather than inventing a new format.
+
+## Supported Input Types
+
+This skill handles ANY of the following (alone or combined):
+
+| Input Type | How to Handle |
+|-----------|---------------|
+| **Textbook PDF** | Extract chapter titles, key concepts, theorems, definitions. Use table of contents as concept structure. |
+| **Lecture slides** | Each slide deck = one or more concepts. Extract titles, key points, formulas. |
+| **Lecture transcripts** (video/audio) | Scan for topic transitions ("now let's talk about..."), definitions, examples. More verbose — focus on extracting the CONCEPTS, not the filler. |
+| **A single book** | Use table of contents as the primary structure. Chapter → concepts. Section headers → sub-concepts. |
+| **Problem sets / exams** | Reverse-engineer which concepts they test. Each problem type = a concept that needs to be in the map. |
+| **Course syllabus / webpage** | Use as the authoritative concept list and ordering. Fill in details from other materials. |
+| **Handwritten notes** (text extracted) | Treat like lecture transcripts — scan for key terms and structures. |
+| **YouTube video transcripts** | Same as lecture transcripts. Look for topic shifts and key definitions. |
+| **Just a book title + no files** | Ask the user what chapters/topics to focus on. Generate concept structure from your training knowledge of that subject. |
+| **Mixed bag of all the above** | Use the syllabus/TOC as the skeleton, fill in with details from all other sources. |
+
+**Rule:** If the folder has ANYTHING in it, you can work with it. If the folder is empty, ask: "What course/book/subject? I'll structure it from what I know."
+
 ## Step 0: Learner Intake Interview
 
 **Before touching any files**, ask these questions to personalize the experience. Store answers in `learner.json`.

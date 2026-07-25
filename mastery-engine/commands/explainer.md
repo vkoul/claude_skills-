@@ -2,6 +2,16 @@
 
 When you encounter a new concept, this skill generates a deep, multi-layered explanation designed to build genuine understanding — not memorization. Each layer attacks the concept from a different angle, and together they form a complete mental model.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow these rules:
+1. Generate ALL 9 layers in order. Do not skip any.
+2. Each layer must have the `WRONG INTUITION` callout.
+3. Use the exact output template below — fill in the sections.
+4. If you don't know enough about a concept, say so at that layer rather than making things up.
+5. Keep each layer focused: 3-6 sentences for Layers 1-2, a diagram description for Layer 3, as much detail as needed for Layer 4-5, 3-5 bullet points for Layer 6.
+6. For Layer 7: if `learner.json` exists, read it for prior knowledge. If not, ask "What do you already know that might relate to this?"
+
 ## The Explanation Stack
 
 For every concept, generate ALL 9 layers in order. Do not skip layers. Each one does work the others can't.

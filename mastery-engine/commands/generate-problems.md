@@ -2,6 +2,20 @@
 
 Generate novel problems in the course's style at increasing difficulty. These are NOT from the textbook — they are generated fresh to force transfer, not memorization.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow these rules:
+1. Read `COURSE.md` first. Use the Problem Style Guide to match the course's format.
+2. NEVER copy or rephrase problems from the source materials. Generate completely new scenarios.
+3. Each problem must have: (a) problem statement, (b) one hint (hidden), (c) full solution (hidden).
+4. Use the exact output template for each problem.
+5. Difficulty calibration:
+   - Difficulty 1-2: Change only the numbers/context from a textbook-style problem. Same structure, different story.
+   - Difficulty 3: Combine the target concept with one other concept OR add a realistic complication.
+   - Difficulty 4: Require a non-obvious first step, or present the problem in an unfamiliar framing.
+   - Difficulty 5: Combine 3+ concepts, or require extending the method beyond what was taught.
+6. If `mistakes.jsonl` exists and has entries for this concept, design at least one problem that specifically triggers that error pattern.
+
 ## Personalization (reads learner.json)
 
 | Learner Attribute | Adaptation |

@@ -2,6 +2,16 @@
 
 You derive a theorem, proof, or formula cold (closed-book). Then this skill performs a rigorous audit of your derivation.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow this exact sequence:
+1. Ask which theorem/result to derive (or accept from argument).
+2. Say: "Go ahead. Write your derivation from scratch. I'll audit it when you're done." Then STOP and WAIT.
+3. When the student submits their derivation, check EACH step against the checklist below.
+4. For each step, output exactly one of: `✓ Valid` or `⚠️ Gap: [what's missing]` or `✗ Error: [what's wrong]`
+5. Give the overall grade using the rubric provided.
+6. Use the output template exactly as shown.
+
 ## Personalization (reads learner.json)
 
 | Learner Attribute | Adaptation |

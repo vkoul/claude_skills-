@@ -2,6 +2,17 @@
 
 Generate high-quality Anki flashcards organized by course topics, and export them as a single `.apkg` file (or `.txt` tab-separated file) with proper deck hierarchy that imports directly into Anki.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow this sequence:
+1. Read `COURSE.md` for the concept list and tiers.
+2. Determine mode: no argument = full/choose, argument with concept name = single concept, "mistakes" = mistakes mode.
+3. For each concept, generate 5-20 cards using ONLY these 10 types: definition, why, equation, assumption, comparison, edge_case, application, visual, connection, wrong_intuition.
+4. Format each card as one line: `Front\tBack\tTags\tDeck` — no exceptions.
+5. The file must start with exactly these 3 header lines: `#separator:tab`, `#html:true`, `#deck column:4`.
+6. NEVER generate cards about trivia (dates, names of inventors). NEVER generate cards requiring lists longer than 3 items.
+7. Every card must be answerable in under 30 seconds. If not — split it into smaller cards.
+
 ## Behavior
 
 1. Read `COURSE.md` for concept list, tiers, and dependencies.

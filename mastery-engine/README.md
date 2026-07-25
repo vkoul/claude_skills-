@@ -471,6 +471,38 @@ The `/master` orchestrator enforces this. It won't let you mark a concept as mas
 
 ---
 
+## Works With Any Model
+
+Every skill includes a **Model Instructions** section with explicit decision trees, step-by-step sequences, and fill-in templates. This means:
+
+| Model | Works? | Notes |
+|-------|--------|-------|
+| **Opus** | Full power | Best at nuanced Socratic questioning and adversarial skeptic mode |
+| **Sonnet** | Excellent | Handles all skills well. Recommended default for daily use |
+| **Haiku** | Good | Follows the mechanical sequences faithfully. May be less creative in problem generation at difficulty 5 |
+
+**Design principle:** Skills are written as explicit procedures, not vague instructions. A model doesn't need to "figure out" what to do — it follows the numbered steps. This makes even the cheapest model effective for most study tasks.
+
+---
+
+## Supported Input Types
+
+`/setup-course` handles whatever you throw at it:
+
+| Input Type | What the Skill Does |
+|-----------|-------------------|
+| **Course slides (PDF/PPTX)** | Extracts concepts, notation, learning objectives, problem style |
+| **Textbook chapters** | Identifies core theorems, definitions, and the dependency chain |
+| **Lecture transcripts** | Pulls out explanations, examples, and emphasis patterns from the instructor |
+| **Problem sets** | Reverse-engineers which concepts they test, calibrates difficulty levels |
+| **Syllabus/schedule** | Maps the timeline, identifies high-weight topics for exams |
+| **A single book** | Treats chapters as modules, sections as concepts. Works fine alone |
+| **Video lecture notes** | Same as transcripts — structure from the explanation flow |
+| **Nothing (empty folder)** | Asks you to describe the course verbally, then builds the concept map from your description |
+| **Mixed mess** | Handles any combination of the above. No organization needed — dump and go |
+
+---
+
 ## Works With Any Course
 
 This system is course-agnostic. Tested with:

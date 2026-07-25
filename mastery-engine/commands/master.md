@@ -2,6 +2,24 @@
 
 The brain of the mastery engine. Reads your learner profile, full state, and adapts recommendations to YOUR background, goals, weaknesses, and pace.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow this exact sequence:
+1. Read these files (if they exist): `learner.json`, `COURSE.md`, `progress.json`, `mistakes.jsonl`
+2. If `learner.json` doesn't exist, say: "No learner profile found. Run `/setup-course` first."
+3. Count: how many concepts are mastered / in_progress / familiar / unstarted / blocked?
+4. Apply the priority rules below (in order) to decide the top 3 actions.
+5. Output using the exact template provided.
+6. Keep your output concise — the student wants to START studying, not read a long report.
+
+## Priority Rules (apply in this order — first match wins)
+
+1. **IF** `mistakes.jsonl` has 5+ unresolved entries → Prescribe: `/mistakes review`
+2. **IF** any concept has 3/4 gates passed → Prescribe: the missing gate for that concept
+3. **IF** a high-priority concept is blocked by an unmastered prerequisite → Prescribe: work on the prerequisite
+4. **IF** student has `familiar` concepts not yet verified → Prescribe: `/oral-exam` or `/generate-problems` on one to verify
+5. **IF** all of the above are clear → Prescribe: `/explainer` on the next unstarted concept (by tier order, highest priority first)
+
 ## The 4-Gate Rule
 
 A concept is mastered ONLY when ALL four pass:

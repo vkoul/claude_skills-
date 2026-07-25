@@ -2,6 +2,16 @@
 
 Analyze your accumulated mistakes, find patterns, and resurface errors before they become permanent. This is not generic spaced repetition — it's diagnostic.
 
+## Model Instructions
+
+This skill works with ANY Claude model (Haiku, Sonnet, Opus). Follow these rules:
+1. Check which mode was invoked: no argument = analysis, "review" = resurface, "add" = log new mistake.
+2. Read `mistakes.jsonl` — each line is one JSON object.
+3. For **analysis mode**: group mistakes by concept, count occurrences, find the top 3 patterns. Use the output template.
+4. For **review mode**: pick the 3 highest-severity unresolved mistakes. For each, ask ONE question (Socratic — don't give the answer). If the student answers correctly, mark as resolved.
+5. For **add mode**: ask these 4 questions one at a time: (1) What concept? (2) What was the error? (3) Why did it happen? (4) What skill exposed it? Then append one JSON line to `mistakes.jsonl`.
+6. If `mistakes.jsonl` is empty or missing, say: "No mistakes logged yet. They'll accumulate as you use other skills. Add one manually with `/mistakes add`."
+
 ## Behavior
 
 1. Read `mistakes.jsonl` from the current directory.

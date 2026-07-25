@@ -208,6 +208,186 @@ Print a summary that includes:
 - First recommended action based on their profile
 - Estimated sessions to mastery given their pace
 - Tell them to open `dashboard.html`
+- **Tell them that `START_HERE.md` has instructions for resuming in future sessions**
+
+## Step 9: Create Resume/Continuation Guide
+
+Generate a `START_HERE.md` file that explains how learners can resume from where they left off. This is critical for learners who study across multiple sessions.
+
+```markdown
+# 🚀 Quick Start Guide - [Course Name]
+
+## When You Return, Do This:
+
+### Step 1: Check Your Progress
+Open `dashboard.html` in your browser to see:
+- Which concepts you've completed
+- Your mistakes count
+- Session progress (X/N sessions done)
+
+### Step 2: Resume Learning
+
+**SIMPLEST: Use Auto-Resume** (Recommended)
+Type `/master` and the system will:
+- Read your `progress.json` automatically
+- Find where you left off
+- Continue from your last concept
+- Choose the right learning activity
+- Update progress as you complete gates
+
+**Alternative: Pick a Specific Concept**
+- `/explainer <concept_name>` - Deep understanding (intuition → formalism)
+- `/generate-problems <concept_name>` - Practice problems immediately
+- `/oral-exam <concept_name>` - Test yourself with questions
+- `/derive <concept_name>` - Prove you can build it from scratch
+- `/mistakes` - Review your error patterns
+
+### Step 3: Track Progress
+
+The system automatically updates `progress.json` as you:
+- Complete explainer gates
+- Solve practice problems
+- Pass oral exams
+- Log mistakes
+
+**You never need to manually edit progress.json** - all skills read and write to it automatically.
+
+---
+
+## 📝 Typical Multi-Session Workflow
+
+**Session 1 (First time):**
+1. Type `/master`
+2. System: "Starting Session 1 with [Concept A]. Let's begin with /explainer."
+3. Work through concept
+4. System automatically marks concept as "in_progress" in progress.json
+
+**Session 2 (Next day):**
+1. Type `/master` 
+2. System: "Last time you started [Concept A]. You completed explainer but need practice. Shall I generate problems?"
+3. Continue with problems
+4. System marks "problems_pass": true when done
+
+**Session 3 (Day after):**
+1. Type `/master`
+2. System: "You've mastered [Concept A]! Moving to [Concept B]. Starting with /explainer..."
+3. New concept begins
+4. System updates status: Concept A → "mastered", Concept B → "in_progress"
+
+**Session N (Final session):**
+1. Type `/master`
+2. System: "All concepts complete! Running final assessment..."
+3. Get completion report
+
+---
+
+## 🗂️ File Reference
+
+| File | Purpose | Auto-Updated? |
+|------|---------|---------------|
+| `progress.json` | Tracks concept status, gates passed, mistakes | ✅ Yes - by all skills |
+| `mistakes.jsonl` | Logs every mistake with context | ✅ Yes - when you use /mistakes or log errors |
+| `dashboard.html` | Visual progress tracker | ❌ Regenerate with /dashboard |
+| `COURSE.md` | Course structure & session plans | ❌ Static reference |
+| `learner.json` | Your profile | ❌ Static (unless you redo interview) |
+| `START_HERE.md` | This file | ❌ Static guide |
+
+---
+
+## 🔄 How Progress Tracking Works
+
+The `/master` skill is the orchestrator. It:
+
+1. **Reads `progress.json`** on every invocation
+2. **Finds the first concept** where `status != "mastered"`
+3. **Checks which gates** are incomplete (`derive_pass`, `problems_pass`, etc.)
+4. **Runs the appropriate skill** to complete the next gate
+5. **Updates `progress.json`** when gates pass
+6. **Moves to next concept** when all gates for current concept pass
+
+**You can also bypass /master** and use skills directly:
+- `/explainer confidence_intervals` - manual concept learning
+- `/generate-problems p_values` - manual problem practice
+
+But **progress.json won't auto-update** unless you're using `/master` or manually call skills that write to it.
+
+---
+
+## 🆘 Common Situations
+
+**"I don't remember where I was"**
+→ Open `dashboard.html` or type `/master` - it will tell you
+
+**"I want to review a concept I already finished"**
+→ `/explainer <concept_name>` or `/generate-problems <concept_name>` - works anytime
+
+**"I made mistakes and want to review them"**
+→ `/mistakes` - shows all logged errors with patterns
+
+**"I want to see overall progress"**
+→ Open `dashboard.html` or type `/dashboard` to regenerate it
+
+**"I want to jump to a different concept"**
+→ You can! Just use `/explainer <other_concept>` or tell /master "skip to X"
+→ But be aware of prerequisites - later concepts may assume earlier ones
+
+**"I changed my timeline/goal"**
+→ Edit `learner.json` manually or tell me to update it
+→ Then regenerate with `/setup-course` (it will ask to merge)
+
+---
+
+## 💡 Pro Tips
+
+1. **Start every session with `/master`** - it's the easiest way to continue
+2. **Check `dashboard.html` frequently** - visual progress is motivating
+3. **Review mistakes before your final session** - use `/mistakes`
+4. **Don't skip concepts** - later ones build on earlier ones
+5. **Log mistakes immediately** - don't wait until later, you'll forget context
+
+---
+
+## 🎯 Quick Command Reference
+
+| Command | What It Does |
+|---------|-------------|
+| `/master` | Auto-continue from last point (RECOMMENDED) |
+| `/explainer <concept>` | Learn a specific concept |
+| `/generate-problems <concept>` | Practice problems for concept |
+| `/oral-exam <concept>` | Test understanding with questions |
+| `/derive <concept>` | Prove you can derive from scratch |
+| `/mistakes` | Review error patterns |
+| `/dashboard` | Regenerate progress visualization |
+| Open `dashboard.html` | See current progress visually |
+
+---
+
+## 🎓 Understanding Your Learning Path
+
+Your personalized path is in `COURSE.md` under "Personalized Learning Path". It's broken into phases:
+
+**Phase 1:** Foundation concepts (prerequisites for everything else)
+**Phase 2:** Core concepts (main material)
+**Phase 3:** Advanced concepts (depth and applications)
+
+`/master` follows this sequence automatically, but you can skip around if needed.
+
+---
+
+**Ready to continue?** Just type `/master` and the system will pick up where you left off!
+```
+
+After creating `START_HERE.md`, print a short message to the learner:
+
+```
+📚 **Resume Instructions Created!**
+
+Next time you return, just type:
+- `/master` - Auto-resume from where you left off (easiest)
+- Or open `START_HERE.md` for full instructions
+
+Your progress is saved in `progress.json` and will persist across sessions.
+```
 
 ## Rules
 
